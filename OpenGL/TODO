@@ -1,0 +1,3 @@
+- Create window system using unique_ptr
+- Create function to set window as the main one
+- Create rendering system
