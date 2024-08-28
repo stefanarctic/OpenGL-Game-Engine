@@ -1,11 +1,13 @@
 
-#include <GLFW/glfw3.h>
+//#include <GLFW/glfw3.h>
+//
+//#include <Windows.h>
+//
+//#include <iostream>
+//
+//#include "GameManager.h"
 
-#include <Windows.h>
-
-#include <iostream>
-
-#include "GameManager.h"
+#include "Game.h"
 
 //void renderGameObject(const GameObject* go)
 //{
@@ -26,6 +28,17 @@ void setupWindowTest()
 
 }
 
+void init()
+{
+    GameManager::getInstance()->init();
+
+    std::shared_ptr<Window> window = Window::create(500, 300, "Test Window");
+    GameManager::getInstance()->setPrimaryWindow(window);
+
+    std::shared_ptr<GameObject> player = GameObject::create(10, 50, 30, 30);
+    GameManager::getInstance()->addGameObject(player);
+}
+
 int main(void)
 {
     GLFWwindow* window;
@@ -43,13 +56,6 @@ int main(void)
     }
 
     glfwMakeContextCurrent(window);
-
-    //CONSOLE_SCREEN_BUFFER_INFO csbi;
-    //int windowWidth, windowHeight;
-
-    //GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
-    //windowWidth = csbi.srWindow.Right - csbi.srWindow.Left + 1;
-    //windowHeight = csbi.srWindow.Bottom - csbi.srWindow.Top + 1;
 
     //std::cout << "Window width: " << windowWidth << ", height: " << windowHeight << '\n';
 

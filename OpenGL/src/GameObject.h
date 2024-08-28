@@ -3,6 +3,8 @@
 #include <utility>
 #include <memory>
 
+typedef std::shared_ptr<GameObject> GameObjectRef;
+
 class GameObject
 {
 public:
